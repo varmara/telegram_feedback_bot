@@ -1,5 +1,10 @@
 # Telegram Bot for Gathering User Feedback
 
+[![Python Version](https://img.shields.io/badge/python-3.10.12-blue.svg)](https://www.python.org/)
+[![Aiogram Version](https://img.shields.io/badge/aiogram-3.7.0-green.svg)](https://docs.aiogram.dev/)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 This Telegram bot is designed to simplify the process of collecting and moderating user-submitted content for Telegram channels. 
 
 The bot collects messages from 121 chats with users and forward them to a specific topic (message thread) within a designated Telegram admin group chat. It's built using the aiogram 3.x framework and follows a modular structure for easy maintenance and extension.
