@@ -1,0 +1,18 @@
+# Environment and Configuration Files
+.env
+config.ini
+
+# Virtual Environments
+venv/
+.venv/
+
+# IDE Configuration
+.idea/
+.vscode/
+.mypy_cache/
+
+# Compiled Python Files
+__pycache__/
+
+# macOS Specific Files
+.DS_Store
