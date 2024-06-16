@@ -15,6 +15,8 @@ The bot collects messages from 121 chats with users and forward them to a specif
 * **Customizable:** Easily configure the target group chat and topic using environment variables.
 * **Formatting Preservation:** Maintains the original formatting (Markdown/HTML) of forwarded messages.
 
+**Planned enhancements:** [TODO](./TODO.md)
+
 ## Installation
 
 1. **Clone the Repository:**
