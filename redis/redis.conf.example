@@ -1,0 +1,4 @@
+# Save every 10 minutes if there is at least 1 change
+save 600 1
+# Filename
+dbfilename redis_dump.rdb

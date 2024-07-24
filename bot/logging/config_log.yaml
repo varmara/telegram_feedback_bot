@@ -1,0 +1,57 @@
+version: 1
+disable_existing_loggers: True
+
+formatters:
+  default:
+    format: '%(asctime)s #%(levelname)-8s %(name)s:%(funcName)s - %(message)s'
+  coloured:
+    (): colorlog.ColoredFormatter
+    format: '%(asctime)s - %(log_color)s%(levelname)-8s%(blue)s %(name)s:%(funcName)s - %(reset)s%(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: coloured
+    stream: ext://sys.stdout
+
+  log_file:
+    class: logging.FileHandler
+    filename: bot.log
+    mode: w
+    formatter: default
+
+loggers:
+  bot.config:
+    handlers: [console, log_file]
+    propagate: False
+
+  bot.filters:
+    handlers: [console, log_file]
+    propagate: False
+
+  bot.handlers:
+    handlers: [console, log_file]
+    propagate: False
+    
+  bot.keyboards:
+    handlers: [console, log_file]
+    propagate: False
+
+  bot.locales:
+    handlers: [console, log_file]
+    propagate: False
+
+  bot.middlewares:
+    handlers: [console, log_file]
+    propagate: False
+
+  bot.utils:
+    handlers: [console, log_file]
+    propagate: False
+
+root:
+  level: DEBUG
+  formatter: default
+  handlers: [console]

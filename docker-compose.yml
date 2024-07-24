@@ -1,0 +1,22 @@
+services:
+
+  bot:
+    container_name: userfeedbackbot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - redis_fsm
+
+  redis_fsm:
+      container_name: redis_fsm
+      image: "redis:7-alpine"
+      restart: "unless-stopped"
+      volumes:
+        - "./redis/redis.conf:/usr/local/etc/redis/redis.conf"
+        - "./redis/data:/data"
+      command: "redis-server /usr/local/etc/redis/redis.conf"
+      healthcheck:
+          test: [ "CMD", "redis-cli","ping" ]
+
+

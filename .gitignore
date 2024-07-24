@@ -1,18 +1,27 @@
 # Environment and Configuration Files
 .env
-config.ini
+config_bot.yaml
 
 # Virtual Environments
 venv/
 .venv/
 
+# Log files
+*.log
+
 # IDE Configuration
 .idea/
 .vscode/
 .mypy_cache/
+.devcontainer/
+.github/
 
 # Compiled Python Files
 __pycache__/
 
 # macOS Specific Files
 .DS_Store
+
+# Redis
+*.rdb
+redis.conf
