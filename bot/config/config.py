@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 def get_config_dir() -> Path:
-    config_dir: Path = Path(__file__).resolve().parents[1]
+    config_dir: Path = Path(__file__).resolve().parents[2]
     if not config_dir.is_dir():
         raise NotADirectoryError(f"Invalid config directory: {config_dir}")
     if not path.isfile(config_dir / ".env"):

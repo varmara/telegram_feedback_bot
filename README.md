@@ -29,74 +29,35 @@ cd your-telegram-bot
 
 2. **Environment configuration:**
 
-- Create a `.env` file in the project root directory.
-- Fill in the required environment variables. You can find an example in a `.env.example` file.
+- Create environment variables or an `.env` file in the bot parent directory. You can find an example in a `.env.example` file.
 
-## Development Setup
+## Development setup
 
-### (A) Running with a docker container locally + local VS Code
+### (A) Running from a .devcontainer in the VS Code
 
-1. **Prerequisites:**
-
-* **Docker:** Make sure you have Docker installed and running on your system. You can find instructions on the official Docker website: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
-* **Docker Compose:** This tool simplifies multi-container Docker applications. It's likely installed with Docker, but you can confirm by running `docker-compose --version`.
-* **VS Code extensions:** `Dev Containers` and `Docker`
-
-1. **Build the development image:**
-
-```bash
-docker-compose build bot_dev  # Use the service name from docker-compose.yml
-```
-
-2. **Run the development container:**
-
-```bash
-docker-compose up -d --build bot_dev 
-docker exec -it bot_dev bash
-```
-
-Your Docker container should be running. The mounted volume (see `Dockerfile.dev`) will allow you to directly edit files on your local machine using VS Code, and the changes will be immediately reflected in the container.
-
-3. **VS Code setup:**
-
-To open the container in VS Code:
-
-- In the Docker extension sidebar, right-click on the running `bot_dev` container and choose "Attach Visual Studio Code." VS Code will open a new window connected to your container.
-- You can also use the Command Palette (Ctrl+Shift+P) and type "Remote-Containers: Attach to Running Container…"
-
-4. **Run the bot:**
-
-In the attached VS Code window, you'll have a terminal directly into your container. You can run the bot as normal:
-
-```bash
-python3 -m bot
-```
-
-### (B) Running from a .devcontainer in the VS Code
-
-1. **Prerequisites:**
+**Prerequisites:**
 
 * **Docker:** Make sure you have Docker installed and running on your system. You can find instructions on the official Docker website: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 * **Docker Compose:** This tool simplifies multi-container Docker applications. It's likely installed with Docker, but you can confirm by running `docker-compose --version`.
 * **VS Code extensions:** `Dev Containers` and `Docker`
 
-2. **Open container in VS Code:**
+1. **Open container in VS Code:**
     - Open your project folder in VS Code. The `.devcontainer.json` file should be present in a `.devcontainer` subdirectory.
     - To start the dev container initially use Command Palette (Ctrl+Shift+P) -> "Remote-Containers: Reopen in Container".
     - VS Code will build the container image (if it hasn't been built before) and create a new VS Code window connected to it.
     - The terminal within this window is connected to the container.
     - VS Code automatically installs the extensions specified in the `devcontainer.json`.
-3. **Rebuilding the container:**
+2. **Rebuilding the container:**
     - If you've made changes to your `Dockerfile.dev` or `requirements.txt`, you will have to rebuild the dev container image. Command Palette -> "Remote-Containers: Rebuild Container."
-4. **Run the bot:**
+3. **Run the bot:**
 
-In the attached VS Code window, you'll have a terminal directly into your container. You can run the bot as normal:
+In the attached VS Code window, you'll have a terminal directly into your container. You can run the bot as notmal:
 
 ```bash
 python3 -m bot
 ```
 
-### (C) Running with a virtual environment locally
+### (B) Running with a virtual environment locally
 
 If you prefer not to use Docker, you can follow these steps:
 

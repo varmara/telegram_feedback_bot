@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 async def main():
     # Setup config
     logger.debug("Setting up config.")
-    load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
+    load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
     config: Settings = get_settings()
 
     # Setup localization

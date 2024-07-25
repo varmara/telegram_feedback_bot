@@ -1,0 +1,23 @@
+bot:
+  # bot__token is passed as an environment variable separately, see .env.example
+  redirect_mode: "topic"
+  admin_chat_id: "-1234567890"
+  admin_topic_id: 42
+  admin_time_zone: "Europe/Moscow"
+  language: "ru"
+
+redis:
+  # Connection string for your Redis Database
+  dsn: "redis://redis_fsm:6379/1"
+
+postgres:
+  # Connection string postgresql+psycopg://bot:password@db_host/telegram
+  # password is passed as an environment variable separately, see .env.example
+  db_schema: "postgresql+psycopg"
+  user: "bot"
+  host: "db_host"
+  port: 5432
+  database: "telegram"
+  # Additional parameter for your PostgreSQL Database
+  # If "yes" then all requests from SQLAlchemy will be logged to console
+  is_echo: "yes"

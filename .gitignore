@@ -13,7 +13,6 @@ venv/
 .idea/
 .vscode/
 .mypy_cache/
-.devcontainer/
 .github/
 
 # Compiled Python Files

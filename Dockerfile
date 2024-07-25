@@ -13,7 +13,7 @@ FROM python:3.10-slim-bullseye AS run-image
 WORKDIR /app
 COPY --from=compile-image /opt/pip_wheels /opt/pip_wheels
 RUN pip install --no-cache /opt/pip_wheels/* && rm -rf /opt/pip_wheels
-# Copy code and config
+# Copy code
 COPY bot /app/bot
 # Run bot
 CMD ["python", "-m", "bot"]

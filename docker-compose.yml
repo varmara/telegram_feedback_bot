@@ -2,9 +2,13 @@ services:
 
   bot:
     container_name: userfeedbackbot
+    restart: "unless-stopped"
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - "${PWD}/.env:/app/.env"
+      - "${PWD}/config_bot.yaml:/app/config_bot.yaml"
     depends_on:
       - redis_fsm
 
@@ -13,8 +17,8 @@ services:
       image: "redis:7-alpine"
       restart: "unless-stopped"
       volumes:
-        - "./redis/redis.conf:/usr/local/etc/redis/redis.conf"
-        - "./redis/data:/data"
+        - "${PWD}/redis/redis.conf:/usr/local/etc/redis/redis.conf"
+        - "${PWD}/redis/data:/data"
       command: "redis-server /usr/local/etc/redis/redis.conf"
       healthcheck:
           test: [ "CMD", "redis-cli","ping" ]
